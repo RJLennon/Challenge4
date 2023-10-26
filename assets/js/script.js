@@ -54,8 +54,11 @@ button1.addEventListener("click", startQuiz = function(){
     answerContainer.style.width="50%";
     answerContainer.style.margin="auto";
 
-    answerContainer.addEventListener("click",function(){
-        alert("hello world");
+    answerContainer.addEventListener("click",function(event){
+        var element = event.target;
+        if(element.matches("button") === true) {
+            alert("You did it!!!");
+        }
     });
 
 });

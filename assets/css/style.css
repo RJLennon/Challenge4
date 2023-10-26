@@ -3,6 +3,7 @@ button {
     margin: 5px;
     background-color: blueviolet;
     color: white;
+    cursor: pointer;
 }
 
 .page-content {
