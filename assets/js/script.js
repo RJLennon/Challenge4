@@ -1,10 +1,11 @@
 
 //Select Container for Content
-var pageContent = document.querySelector(".Page-Content");
+var pageContent = document.querySelector(".page-content");
 
 //Establish elements
 var titleEl = document.createElement("h1");
 var descriptionEl = document.createElement("p");
+var answerContainer = document.createElement("div");
 var button1 = document.createElement("button");
 var button2 = document.createElement("button");
 var button3 = document.createElement("button");
@@ -33,14 +34,33 @@ pageContent.appendChild(button1);
 button1.addEventListener("click", startQuiz = function(){
     titleEl.textContent=q1;
     pageContent.removeChild(descriptionEl);
+    pageContent.removeChild(button1);
     button1.textContent=q1_Option1;
     button2.textContent=q1_Option2;
     button3.textContent=q1_Option3;
     button4.textContent=q1_Option4;
-    pageContent.appendChild(button2);
-    pageContent.appendChild(button3);
-    pageContent.appendChild(button4);
+
+    pageContent.appendChild(answerContainer);
+    answerContainer.appendChild(button1);
+    answerContainer.appendChild(button2);
+    answerContainer.appendChild(button3);
+    answerContainer.appendChild(button4);
+
+    button1.style.display="block";
+    button2.style.display="block";
+    button3.style.display="block";
+    button4.style.display="block";
+
+    answerContainer.style.width="50%";
+    answerContainer.style.margin="auto";
+
+    answerContainer.addEventListener("click",function(){
+        alert("hello world");
+    });
+
 });
+
+
     
 
 
