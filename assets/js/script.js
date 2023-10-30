@@ -34,6 +34,7 @@ var q2_Option4 = "This is question 2, choice 4"
 pageContent.appendChild(titleEl);
 pageContent.appendChild(descriptionEl);
 pageContent.appendChild(button1);
+button1.style.display="inline";
 
 //Add event listener for the button click
 
@@ -55,9 +56,6 @@ button1.addEventListener("click", startQuiz = function(){
     answerContainer.appendChild(button4);
 
     button1.style.display="block";
-    button2.style.display="block";
-    button3.style.display="block";
-    button4.style.display="block";
 
     answerContainer.style.width="50%";
     answerContainer.style.margin="auto";
