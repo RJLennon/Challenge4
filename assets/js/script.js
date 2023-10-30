@@ -2,19 +2,29 @@
 //Select Container for Content
 var pageContent = document.querySelector(".page-content");
 
-//Establish elements
+//Establish start page elements
 var titleEl = document.createElement("h1");
 var descriptionEl = document.createElement("p");
-var answerContainer = document.createElement("div");
-var button1 = document.createElement("button");
-var button2 = document.createElement("button");
-var button3 = document.createElement("button");
-var button4 = document.createElement("button");
+var start_button = document.createElement("button");
+
+//Question 1 Elements
+var q1_answerContainer = document.createElement("div");
+var q1_button1 = document.createElement("button");
+var q1_button2 = document.createElement("button");
+var q1_button3 = document.createElement("button");
+var q1_button4 = document.createElement("button");
+
+//Question 2 Elements
+var q2_answerContainer = document.createElement("div");
+var q2_button1 = document.createElement("button");
+var q2_button2 = document.createElement("button");
+var q2_button3 = document.createElement("button");
+var q2_button4 = document.createElement("button");
 
 //Add opening page critira and display content
 titleEl.textContent="Coding Quiz Challenge";
 descriptionEl.textContent="This is the description";
-button1.textContent="Start Quiz";
+start_button.textContent="Start Quiz";
 
 //Add Variables for Question 1
 var q1 = "This is Question 1"
@@ -33,46 +43,43 @@ var q2_Option4 = "This is question 2, choice 4"
 
 pageContent.appendChild(titleEl);
 pageContent.appendChild(descriptionEl);
-pageContent.appendChild(button1);
-button1.style.display="inline";
+pageContent.appendChild(start_button);
+start_button.style.display="inline";
 
 //Add event listener for the button click
 
-//*** THIS EVENT LISTENER FOR BUTTON 1 IS STILL ACTIVE AND TRYING TO REMOVE ELEMTS */
 
-button1.addEventListener("click", startQuiz = function(){
+
+start_button.addEventListener("click", startQuiz = function(){
     titleEl.textContent=q1;
     pageContent.removeChild(descriptionEl);
-    pageContent.removeChild(button1);
-    button1.textContent=q1_Option1;
-    button2.textContent=q1_Option2;
-    button3.textContent=q1_Option3;
-    button4.textContent=q1_Option4;
+    pageContent.removeChild(start_button);
+    q1_button1.textContent=q1_Option1;
+    q1_button2.textContent=q1_Option2;
+    q1_button3.textContent=q1_Option3;
+    q1_button4.textContent=q1_Option4;
 
-    pageContent.appendChild(answerContainer);
-    answerContainer.appendChild(button1);
-    answerContainer.appendChild(button2);
-    answerContainer.appendChild(button3);
-    answerContainer.appendChild(button4);
+    pageContent.appendChild(q1_answerContainer);
+    q1_answerContainer.appendChild(q1_button1);
+    q1_answerContainer.appendChild(q1_button2);
+    q1_answerContainer.appendChild(q1_button3);
+    q1_answerContainer.appendChild(q1_button4);
 
-    button1.style.display="block";
-
-    answerContainer.style.width="50%";
-    answerContainer.style.margin="auto";
-
-    answerContainer.addEventListener("click",function(event){
-        var element = event.target;
-        if((element.matches("button") === true)&&(element.textContent===q1_Option4)) {
-            console.log("Correct");
-        } else if (element.matches("button")=== true) {
-            console.log("Incorrect");
-        };
-    });
+    q1_answerContainer.style.width="50%";
+    q1_answerContainer.style.margin="auto";
 
 });
 
-
-    
+q1_answerContainer.addEventListener("click",function(event){
+    var element = event.target;
+    if((element.matches("button") === true)&&(element.textContent===q1_Option4)) {
+        console.log("Correct");
+        pageContent.removeChild(q1_answerContainer);
+    } else if (element.matches("button")=== true) {
+        console.log("Incorrect");
+        pageContent.removeChild(q1_answerContainer);
+    };
+});
 
 
 
