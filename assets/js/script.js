@@ -102,7 +102,6 @@ pageContent.appendChild(descriptionEl);
 pageContent.appendChild(start_button);
 start_button.style.display="inline";
 
-countdown();
 headerContent.appendChild(timerEl);
 
 //Q2 container setup
@@ -149,8 +148,28 @@ q5_button2.textContent=q5_Option2;
 q5_button3.textContent=q5_Option3;
 q5_button4.textContent=q5_Option4;
 
+var timeLeft = 75;
+timerEl.innerText = "Time: "+timeLeft;
 
+//Add timer function 
+function countdown() {
+    // TODO: Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+    var timeInterval = setInterval(function () {
+    if (timeLeft > 0) {
+      timeLeft--;
+      timerEl.innerText = "Time: "+timeLeft;
+    }  else {
+      clearInterval(timeInterval)
+    };
+    }, 1000);
+  };
+
+//Start Quiz
 start_button.addEventListener("click", startQuiz = function(){
+    //start countdown
+    countdown();
+
+    //update page elements
     titleEl.textContent=q1;
     pageContent.removeChild(descriptionEl);
     pageContent.removeChild(start_button);
@@ -273,18 +292,3 @@ q5_answerContainer.addEventListener("click",function(event){
     };
 });
 
-//Add timer function 
-
-function countdown() {
-    var timeLeft = 5;
-  
-    // TODO: Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-    var timeInterval = setInterval(function () {
-    if (timeLeft > 0) {
-      timerEl.innerText = timeLeft;
-      timeLeft--;
-    }  else {
-      clearInterval(timeInterval)
-    };
-    }, 1000);
-  };
