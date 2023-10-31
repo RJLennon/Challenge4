@@ -1,11 +1,13 @@
 
 //Select Container for Content
 var pageContent = document.querySelector(".page-content");
+var headerContent = document.querySelector("header");
 
 //Establish start page elements
 var titleEl = document.createElement("h1");
 var descriptionEl = document.createElement("p");
 var start_button = document.createElement("button");
+var timerEl = document.createElement("div");
 
 //Question 1 Elements
 var q1_answerContainer = document.createElement("div");
@@ -99,6 +101,9 @@ pageContent.appendChild(titleEl);
 pageContent.appendChild(descriptionEl);
 pageContent.appendChild(start_button);
 start_button.style.display="inline";
+
+countdown();
+headerContent.appendChild(timerEl);
 
 //Q2 container setup
 q2_answerContainer.appendChild(q2_button1);
