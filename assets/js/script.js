@@ -150,17 +150,20 @@ q5_button4.textContent=q5_Option4;
 
 var timeLeft = 75;
 timerEl.innerText = "Time: "+timeLeft;
+var stopTimer = 0;
 
 //Add timer function 
 function countdown() {
     // TODO: Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
     var timeInterval = setInterval(function () {
-    if (timeLeft > 0) {
-      timeLeft--;
-      timerEl.innerText = "Time: "+timeLeft;
-    }  else {
-      clearInterval(timeInterval)
-    };
+    if (stopTimer > 0) {
+        clearInterval(timeInterval);
+    } else if (timeLeft > 0) {
+        timeLeft--;
+        timerEl.innerText = "Time: "+timeLeft;
+    } else {
+        clearInterval(timeInterval);
+    }
     }, 1000);
   };
 
@@ -207,6 +210,7 @@ q1_answerContainer.addEventListener("click",function(event){
         pageContent.removeChild(q1_answerContainer);
         pageContent.appendChild(q2_answerContainer);
         titleEl.textContent=q2;
+        timeLeft=timeLeft-10;
     };
 });
 
@@ -228,6 +232,7 @@ q2_answerContainer.addEventListener("click",function(event){
         pageContent.removeChild(q2_answerContainer);
         pageContent.appendChild(q3_answerContainer);
         titleEl.textContent=q3;
+        timeLeft=timeLeft-10;
     };
 });
 
@@ -249,6 +254,7 @@ q3_answerContainer.addEventListener("click",function(event){
         pageContent.removeChild(q3_answerContainer);
         pageContent.appendChild(q4_answerContainer);
         titleEl.textContent=q4;
+        timeLeft=timeLeft-10;
     };
 });
 
@@ -270,6 +276,7 @@ q4_answerContainer.addEventListener("click",function(event){
         pageContent.removeChild(q4_answerContainer);
         pageContent.appendChild(q5_answerContainer);
         titleEl.textContent=q5;
+        timeLeft=timeLeft-10;
     };
 });
 
@@ -282,13 +289,16 @@ q5_answerContainer.addEventListener("click",function(event){
     if((element.matches("button") === true)&&(element.textContent===q5_Option4)) {
         console.log("Correct");
         pageContent.removeChild(q5_answerContainer);
-        titleEl.textContent="End of quiz.";
+        titleEl.textContent="End of quiz. "+timeLeft;
+        stopTimer=1;
 
     //If the incorrect answer is selected
     } else if (element.matches("button")=== true) {
         console.log("Incorrect");
         pageContent.removeChild(q5_answerContainer);
-        titleEl.textContent="End of quiz.";
+        titleEl.textContent="End of quiz. "+timeLeft;
+        timeLeft=timeLeft-10;
+        stopTimer=1;
     };
 });
 
