@@ -67,7 +67,7 @@ submitButton.textContent="Submit";
 
 //Add opening page critira and display content
 titleEl.textContent="Coding Quiz Challenge";
-descriptionEl.textContent="This is the description";
+descriptionEl.textContent="Try to answer the following code related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds.";
 start_button.textContent="Start Quiz";
 
 //Add Variables for Question 1
