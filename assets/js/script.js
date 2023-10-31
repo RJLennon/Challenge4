@@ -56,6 +56,14 @@ var q5_button4 = document.createElement("button");
 q5_answerContainer.style.width="50%";
 q5_answerContainer.style.margin="auto";
 
+//Submit Score Elements
+var enterInitials = document.createElement("input");
+var submitText = document.createElement("p");
+var submitButton = document.createElement("button");
+
+submitText.textContent="Enter initials: ";
+submitButton.textContent="Submit";
+
 
 //Add opening page critira and display content
 titleEl.textContent="Coding Quiz Challenge";
@@ -289,14 +297,34 @@ q5_answerContainer.addEventListener("click",function(event){
     if((element.matches("button") === true)&&(element.textContent===q5_Option4)) {
         console.log("Correct");
         pageContent.removeChild(q5_answerContainer);
-        titleEl.textContent="End of quiz. "+timeLeft;
+        titleEl.textContent="All done.";
+        descriptionEl.textContent="Your final score is: "+timeLeft;
+        pageContent.appendChild(descriptionEl);
+        pageContent.appendChild(submitText);
+        pageContent.appendChild(enterInitials);
+        pageContent.appendChild(submitButton);
+
+        submitText.style.display="inline";
+        enterInitials.style.display="inline";
+        submitButton.style.display="inline";
+        
         stopTimer=1;
 
     //If the incorrect answer is selected
     } else if (element.matches("button")=== true) {
         console.log("Incorrect");
         pageContent.removeChild(q5_answerContainer);
-        titleEl.textContent="End of quiz. "+timeLeft;
+        titleEl.textContent="All done.";
+        descriptionEl.textContent="Your final score is: "+timeLeft;
+        pageContent.appendChild(descriptionEl);
+        pageContent.appendChild(submitText);
+        pageContent.appendChild(enterInitials);
+        pageContent.appendChild(submitButton);
+
+        submitText.style.display="inline";
+        enterInitials.style.display="inline";
+        submitButton.style.display="inline";
+
         timeLeft=timeLeft-10;
         stopTimer=1;
     };
