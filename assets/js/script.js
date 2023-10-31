@@ -71,39 +71,39 @@ descriptionEl.textContent="This is the description";
 start_button.textContent="Start Quiz";
 
 //Add Variables for Question 1
-var q1 = "This is Question 1"
-var q1_Option1 = "This is question 1, choice 1"
-var q1_Option2 = "This is question 1, choice 2"
-var q1_Option3 = "This is question 1, choice 3"
-var q1_Option4 = "This is question 1, choice 4"
+var q1 = "Commonly used data types DO NOT include:"
+var q1_Option1 = "1. Strings"
+var q1_Option2 = "2. Booleans"
+var q1_Option3 = "3. Alerts"
+var q1_Option4 = "4. Numbers"
 
 //Add Variables for Question 2
-var q2 = "This is Question 2"
-var q2_Option1 = "This is question 2, choice 1"
-var q2_Option2 = "This is question 2, choice 2"
-var q2_Option3 = "This is question 2, choice 3"
-var q2_Option4 = "This is question 2, choice 4"
+var q2 = "The condition in an if/else statement is enclosed within ______."
+var q2_Option1 = "1. Quotes"
+var q2_Option2 = "2. Curly Brackets"
+var q2_Option3 = "3. Parenthesis"
+var q2_Option4 = "4. Square Brackets"
 
 //Add Variables for Question 3
-var q3 = "This is Question 3"
-var q3_Option1 = "This is question 3, choice 1"
-var q3_Option2 = "This is question 3, choice 2"
-var q3_Option3 = "This is question 3, choice 3"
-var q3_Option4 = "This is question 3, choice 4"
+var q3 = "Arrays in JavaScript can be used to  store ______."
+var q3_Option1 = "1. Numbers and strings"
+var q3_Option2 = "2. Booleans"
+var q3_Option3 = "3. Other arrays"
+var q3_Option4 = "4. All of the above"
 
 //Add Variables for Question 4
-var q4 = "This is Question 4"
-var q4_Option1 = "This is question 4, choice 1"
-var q4_Option2 = "This is question 4, choice 2"
-var q4_Option3 = "This is question 4, choice 3"
-var q4_Option4 = "This is question 4, choice 4"
+var q4 = "String values must be enclosed within ______ when being assigned to variables."
+var q4_Option1 = "1. Commas"
+var q4_Option2 = "2. Quotes"
+var q4_Option3 = "3. Curly Brackets"
+var q4_Option4 = "4. Parenthesis"
 
 //Add Variables for Question 5
-var q5 = "This is Question 5"
-var q5_Option1 = "This is question 5, choice 1"
-var q5_Option2 = "This is question 5, choice 2"
-var q5_Option3 = "This is question 5, choice 3"
-var q5_Option4 = "This is question 5, choice 4"
+var q5 = "A very useful tool during development and debugging for printing content to the debugger is:"
+var q5_Option1 = "1. JavaScript"
+var q5_Option2 = "2. Terminal"
+var q5_Option3 = "3. For loop"
+var q5_Option4 = "4. Console log"
 
 pageContent.appendChild(titleEl);
 pageContent.appendChild(descriptionEl);
@@ -206,7 +206,7 @@ q1_answerContainer.addEventListener("click",function(event){
     var element = event.target;
 
     //IF the correct answer is selected
-    if((element.matches("button") === true)&&(element.textContent===q1_Option4)) {
+    if((element.matches("button") === true)&&(element.textContent===q1_Option3)) {
         console.log("Correct");
         pageContent.removeChild(q1_answerContainer);
         pageContent.appendChild(q2_answerContainer);
@@ -250,7 +250,7 @@ q3_answerContainer.addEventListener("click",function(event){
     var element = event.target;
 
     //IF the correct answer is selected
-    if((element.matches("button") === true)&&(element.textContent===q3_Option2)) {
+    if((element.matches("button") === true)&&(element.textContent===q3_Option4)) {
         console.log("Correct");
         pageContent.removeChild(q3_answerContainer);
         pageContent.appendChild(q4_answerContainer);
@@ -272,7 +272,7 @@ q4_answerContainer.addEventListener("click",function(event){
     var element = event.target;
 
     //IF the correct answer is selected
-    if((element.matches("button") === true)&&(element.textContent===q4_Option1)) {
+    if((element.matches("button") === true)&&(element.textContent===q4_Option2)) {
         console.log("Correct");
         pageContent.removeChild(q4_answerContainer);
         pageContent.appendChild(q5_answerContainer);
@@ -297,7 +297,7 @@ q5_answerContainer.addEventListener("click",function(event){
     if((element.matches("button") === true)&&(element.textContent===q5_Option4)) {
         console.log("Correct");
         pageContent.removeChild(q5_answerContainer);
-        titleEl.textContent="All done.";
+        titleEl.textContent="All done!";
         descriptionEl.textContent="Your final score is: "+timeLeft;
         pageContent.appendChild(descriptionEl);
         pageContent.appendChild(submitText);
@@ -309,13 +309,14 @@ q5_answerContainer.addEventListener("click",function(event){
         submitButton.style.display="inline";
         
         stopTimer=1;
+        timerEl.innerText = "Time: "+timeLeft;
+        descriptionEl.textContent="Your final score is: "+timeLeft;
 
     //If the incorrect answer is selected
     } else if (element.matches("button")=== true) {
         console.log("Incorrect");
         pageContent.removeChild(q5_answerContainer);
-        titleEl.textContent="All done.";
-        descriptionEl.textContent="Your final score is: "+timeLeft;
+        titleEl.textContent="All done!";
         pageContent.appendChild(descriptionEl);
         pageContent.appendChild(submitText);
         pageContent.appendChild(enterInitials);
@@ -327,6 +328,8 @@ q5_answerContainer.addEventListener("click",function(event){
 
         timeLeft=timeLeft-10;
         stopTimer=1;
+        timerEl.innerText = "Time: "+timeLeft;
+        descriptionEl.textContent="Your final score is: "+timeLeft;
     };
 });
 
